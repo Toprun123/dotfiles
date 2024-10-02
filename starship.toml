@@ -1,0 +1,142 @@
+# bg: #2c0426
+
+## FIRST LINE/ROW: Info & Status
+# First param ─┌
+add_newline = false
+
+[username]
+format = " [╭─](#fa3c3c) [$user]($style)@"
+style_user = "bold blue"
+style_root = "#fa3c3c"
+show_always = true
+
+# Second param
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold yellow"
+trim_at = "-"
+ssh_only = false
+disabled = false
+
+# Third param
+[directory]
+style = "bold purple"
+truncation_length = 0
+truncate_to_repo = true
+truncation_symbol = "\uea62 "
+read_only = " \uf023 "
+
+# Before all the version info (python, nodejs, php, etc.)
+[git_status]
+style = "bold red"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+# Last param in the first line/row
+[cmd_duration]
+style = "bold yellow"
+min_time = 1
+format = "took [$duration]($style)"
+disabled = false
+
+[battery]
+disabled = false
+full_symbol = "󱟢 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol = "󰂑 "
+empty_symbol= "󰂎 "
+format = " [$symbol$percentage](bold red)\n"
+
+[[battery.display]]
+threshold = 25
+style = "bold red"
+
+[character]
+success_symbol = " [╰─](#fa3c3c)[ λ](bold green)"
+error_symbol = " [×](#fa3c3c)"
+
+# SYMBOLS
+[status]
+symbol = "λ"
+format = ' [╰─](#fa3c3c)[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+disabled = false
+
+[jobs]
+symbol = "󰫢"
+format = """ [${symbol}](#CBC3E3)
+"""
+symbol_threshold = 1
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+style="bold green"
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[haskell]
+symbol = "λ "
+
+[nix_shell]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+#pyenv_version_name = true
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold blue"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[nodejs]
+format = "via [\ue718 Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
