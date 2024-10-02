@@ -209,3 +209,4 @@ exec_always --no-startup-id bash ~/.config/polybar/launch.sh &
 exec_always --no-startup-id xborders --border-radius 20 --border-width 2 --border-rgba "#CF9FFFFF" --border-mode outside &
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh --nofork &
 exec_always --no-startup-id greenclip daemon &
+exec_always --no-startup-id setxkbmap us &

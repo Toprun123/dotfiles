@@ -7,6 +7,7 @@ setxkbmap us
 i3lock-color \
     -ek \
     -c 33333377 \
+    --nofork \
     --inside-color=00000000 \
     --insidever-color=4b8a2488 \
     --insidewrong-color=c22a2a88 \
