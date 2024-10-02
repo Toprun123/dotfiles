@@ -1,5 +1,4 @@
-## This is a collection of my nixos dotfiles.
----
+# This is a collection of my nixos dotfiles.
 
 ![image](screenshot.png)
 
