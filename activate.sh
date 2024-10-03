@@ -53,8 +53,8 @@ ln -s $DOT_DIR/fastfetch.jsonc $CONFIG_DIR/fastfetch/config.jsonc
 rm -f $CONFIG_DIR/polybar
 ln -s $DOT_DIR/polybar/ $CONFIG_DIR/polybar
 
-rm -f ~/.icons/default 2>/dev/null
-ln -s $DOT_DIR/themes/Apple-cursors-LB ~/.icons/default
+rm -f ~/.Xresources
+cp $DOT_DIR/.Xresources ~/.Xresources
 
 rm -f $CONFIG_DIR/gtk-3.0/settings.ini
 ln -s $DOT_DIR/gtk.config.ini $CONFIG_DIR/gtk-3.0/settings.ini

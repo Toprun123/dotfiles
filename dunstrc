@@ -1,0 +1,49 @@
+[global]
+monitor = 0
+follow = none
+enable_posix_regex = true
+width = (0, 300)
+height = 500
+notification_limit = 5
+origin = bottom-right
+offset = 20x20
+icon_corner_radius = 18
+frame_width = 3
+gap_size = 5
+padding = 12
+horizontal_padding = 12
+idle_threshold = 60
+font = Operator Mono Lig Book 12
+format = "<span font='10.5' font_weight='bold' size='x-large'>%s</span>\n%b"
+show_age_threshold = 0
+icon_path = "/home/sixzix-admin/.icons/Uos-fulldistro-icons/apps/64"
+icon_theme = "Uos-fulldistro-icons"
+dmenu = "bash ~/dotfiles/scripts/menuify.sh"
+browser = "xdg-open"
+corner_radius = 18
+mouse_left_click="do_action, close_current"
+mouse_middle_click="close_current"
+mouse_right_click="context"
+
+[urgency_low]
+frame_color = "#877d91"
+highlight = "#877d91"
+foreground = "#fff"
+background = "#2f2f4a"
+fullscreen = pushback
+history_ignore = true
+
+[urgency_normal]
+frame_color = "#CF9FFF"
+highlight = "#CF9FFF"
+foreground = "#fff"
+background = "#2f2f4a"
+fullscreen = delay
+
+[urgency_critical]
+frame_color = "#fa8290"
+highlight = "#fa8290"
+foreground = "#fff"
+background = "#2f2f4a"
+fullscreen = show
+

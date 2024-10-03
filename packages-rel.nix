@@ -16,6 +16,7 @@
         cargo
         cmatrix
         dmenu
+        dunst
         fastfetch
         feh
         fribidi
@@ -25,7 +26,7 @@
         jq
         killall
         kitty
-        lxappearance
+        libnotify
         neovim
         nerdfonts
         maim

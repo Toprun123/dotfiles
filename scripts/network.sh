@@ -13,7 +13,7 @@ else
     networks=$(nmcli -f SSID dev wifi list | awk 'NR>1 {gsub(/^ +| +$/, "", $1); print $1}' | awk '!seen[$0]++')
 
     # Use dmenu to select a network
-    selected_network=$(echo "$networks" | dmenu -p "Select Wi-Fi network:" -nf '#f1b950' -nb '#1d2434' -sb '#674099' -sf '#bac2de' -fn 'BatmanForeverAlternate-13')
+    selected_network=$(echo "$networks" | dmenu -p "Select Wi-Fi network:" -nf '#f1b950' -nb '#1d2434' -sb '#674099' -sf '#bac2de' -fn 'BatmanForeverAlternate-16')
 
     # Check if a network was selected
     if [ -n "$selected_network" ]; then

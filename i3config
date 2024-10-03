@@ -51,7 +51,7 @@ bindcode $mod+26 exec bash ~/dotfiles/scripts/power.sh
 bindcode $mod+25 exec --no-startup-id kitty &
 bindcode $mod+23 exec --no-startup-id firefox &
 bindcode $mod+38 exec --no-startup-id "maim -l -c 0.3,0.5,1.0,0.8 -s | tee /tmp/screenshot_temp.png | xclip -selection clipboard -t image/png && if [ -s '/tmp/screenshot_temp.png' ]; then mv /tmp/screenshot_temp.png ~/screenshots/$(date +%Y-%m-%d_%H:%M:%S).png; fi"
-bindcode $mod+54 exec --no-startup-id env GTK_THEME='catppuccin-frappe-blue-standard' nautilus &
+bindcode $mod+54 exec --no-startup-id kitty -e yazi &
 bindcode $mod+53 exec --no-startup-id code &
 bindcode $mod+55 exec --no-startup-id "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
@@ -202,11 +202,17 @@ for_window [class="^.*blueman.*"] floating enable
 for_window [title="passprompt"] floating enable
 
 exec --no-startup-id feh --bg-fill ~/dotfiles/bg.jpg &
-exec --no-startup-id bash ~/dotfiles/scripts/restarti3.sh
-exec --no-startup-id bluetoothctl power off
+exec --no-startup-id bash ~/dotfiles/scripts/restarti3.sh &
+exec --no-startup-id bluetoothctl power off &
 
+exec_always --no-startup-id pkill dunst; dunst -config ~/.config/dunst/dunstrc &
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh &
-exec_always --no-startup-id xborders --border-radius 20 --border-width 2 --border-rgba "#CF9FFFFF" --border-mode outside &
+exec_always --no-startup-id pkill xborders; xborders --border-radius 20 --border-width 2 --border-rgba "#CF9FFFFF" --border-mode outside &
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh --nofork &
 exec_always --no-startup-id greenclip daemon &
 exec_always --no-startup-id setxkbmap us &
+exec_always --no-startup-id xrandr --output HDMI1 --right-of eDP1 --auto &
+exec_always --no-startup-id xrandr --output HDMI1 --set "Broadcast RGB" "Full" &
+exec_always --no-startup-id xrandr --output eDP1 --primary &
+exec_always --no-startup-id xsetroot -cursor_name left_ptr &
+exec_always --no-startup-id xrdb ~/.Xresources &
