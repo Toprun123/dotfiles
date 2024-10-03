@@ -53,6 +53,9 @@ ln -s $DOT_DIR/fastfetch.jsonc $CONFIG_DIR/fastfetch/config.jsonc
 rm -f $CONFIG_DIR/polybar
 ln -s $DOT_DIR/polybar/ $CONFIG_DIR/polybar
 
+rm -f $CONFIG_DIR/dunst/dunstrc
+ln -s $DOT_DIR/dunstrc $CONFIG_DIR/dunst/dunstrc
+
 rm -f ~/.Xresources
 cp $DOT_DIR/.Xresources ~/.Xresources
 
