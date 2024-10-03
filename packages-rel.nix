@@ -4,9 +4,6 @@
 
     environment.systemPackages = with pkgs; [
 
-        fishPlugins.fzf-fish
-        gnome.gnome-keyring
-        gnome.nautilus
         haskellPackages.greenclip
 
         acpi
@@ -17,13 +14,11 @@
         btop
         canon-cups-ufr2
         cargo
-        catppuccin-gtk
         cmatrix
         dmenu
         fastfetch
         feh
         fribidi
-        fzf
         git
         gparted
         i3lock-color
@@ -33,8 +28,6 @@
         lxappearance
         neovim
         nerdfonts
-        nitrogen
-        nix-index
         maim
         picom
         polkit_gnome
@@ -47,13 +40,11 @@
         sysstat
         tldr
         tree
-        unrar
         unzip
         vim
         virtualenv
         vorta
         vscode
-        xarchiver
         xborders
         xclip
         xss-lock

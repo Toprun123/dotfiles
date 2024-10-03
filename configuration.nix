@@ -14,7 +14,6 @@
     sound.enable = true;
     system.stateVersion = "23.05";
     hardware.bluetooth.enable = true;
-    #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
     networking = {
@@ -48,13 +47,12 @@
 
 
     services = {
-        displayManager.defaultSession = "xfce+i3";
+        displayManager.defaultSession = "none+i3";
         gvfs.enable = true;
         printing = {
             enable = true;
             drivers = [ pkgs.gutenprint ];
         };
-        gnome.gnome-keyring.enable = true;
         avahi = {
             enable = true;
             nssmdns4 = true;
@@ -67,14 +65,6 @@
             xkb = {
                 variant = "";
                 layout = "us,tr,ara,pk";
-            };
-            desktopManager = {
-                xterm.enable = false;
-                xfce = {
-                    enable = true;
-                    noDesktop = true;
-                    enableXfwm = false;
-                };
             };
             displayManager.lightdm = {
                 enable = true;
@@ -105,6 +95,11 @@
                 };
                 opacity-rule = [
                     "85:class_g = 'Polybar'"
+                ];
+                corner-radius-exclude = [
+                    "class_g     = 'Dunst'"
+                    "class_i     = 'Dunst'"
+                    "name        = 'Dunst'"
                 ];
                 blur-background-exclude = [
                     "class_g    ~= 'slop'"
@@ -142,7 +137,6 @@
     security = {
         rtkit.enable = true;
         polkit.enable = true;
-        pam.services.lightdm.enableGnomeKeyring = true;
     };
 
 
@@ -164,7 +158,6 @@
     environment.variables = {
         TERM = "kitty";
         TERMINAL = "kitty";
-        GTK_THEME = "catppuccin-frappe-blue-standard";
     };
 
 
