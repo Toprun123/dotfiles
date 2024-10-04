@@ -23,6 +23,7 @@
         git
         gparted
         i3lock-color
+        inkscape-with-extentions
         jq
         killall
         kitty
