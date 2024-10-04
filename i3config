@@ -201,10 +201,10 @@ for_window [class="^.*"] border pixel 0
 for_window [class="^.*blueman.*"] floating enable
 for_window [title="passprompt"] floating enable
 
-exec --no-startup-id feh --bg-fill ~/dotfiles/bg.jpg &
 exec --no-startup-id bash ~/dotfiles/scripts/restarti3.sh &
 exec --no-startup-id bluetoothctl power off &
 
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/bg.svg &
 exec_always --no-startup-id pkill dunst; dunst -config ~/.config/dunst/dunstrc &
 exec_always --no-startup-id pkill xborders; xborders --border-radius 20 --border-width 2 --border-rgba "#CF9FFFFF" --border-mode outside &
 exec_always --no-startup-id pkill greenclip; greenclip daemon &

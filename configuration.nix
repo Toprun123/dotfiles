@@ -68,7 +68,7 @@
             };
             displayManager.lightdm = {
                 enable = true;
-                background = /home/sixzix-admin/dotfiles/bg.jpg;
+                background = /home/sixzix-admin/dotfiles/bg.png;
             };
         };
         pipewire = {
@@ -85,7 +85,7 @@
             enable = true;
             fadeDelta = 8;
             backend = "egl";
-            inactiveOpacity = 0.87;
+            inactiveOpacity = 0.93;
             settings = {
                 corner-radius = 18;
                 blur = {
