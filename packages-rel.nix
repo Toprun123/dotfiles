@@ -31,6 +31,7 @@
         nerdfonts
         maim
         picom
+        pipes
         polkit_gnome
         polybar
         pulseaudioFull
