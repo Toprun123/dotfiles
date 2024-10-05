@@ -85,7 +85,7 @@
             enable = true;
             fadeDelta = 8;
             backend = "egl";
-            inactiveOpacity = 0.93;
+            inactiveOpacity = 0.95;
             settings = {
                 corner-radius = 18;
                 blur = {
