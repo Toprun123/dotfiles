@@ -38,6 +38,7 @@
         pulseaudioFull
         python3
         rofi
+        rust-analyzer
         rustc
         starship
         sysstat
