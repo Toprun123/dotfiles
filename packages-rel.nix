@@ -20,6 +20,7 @@
         fastfetch
         feh
         fribidi
+        gcc
         git
         gparted
         i3lock-color
