@@ -13,7 +13,6 @@
         brightnessctl
         btop
         canon-cups-ufr2
-        cargo
         cmatrix
         dmenu
         dunst
@@ -29,18 +28,18 @@
         killall
         kitty
         libnotify
+        maim
         neovim
         nerdfonts
-        maim
         picom
-        pipes
+        pipes-rs
         polkit_gnome
         polybar
         pulseaudioFull
         python3
         rofi
-        rust-analyzer
-        rustc
+        rustup
+        sshfs
         starship
         sysstat
         tldr
@@ -52,6 +51,7 @@
         vscode
         xborders
         xclip
+        xournal
         xss-lock
         yazi
         zoom-us

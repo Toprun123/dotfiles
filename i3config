@@ -204,12 +204,12 @@ for_window [title="passprompt"] floating enable
 exec --no-startup-id bash ~/dotfiles/scripts/restarti3.sh &
 exec --no-startup-id bluetoothctl power off &
 
-exec_always --no-startup-id feh --bg-fill ~/dotfiles/bg.svg &
 exec_always --no-startup-id pkill dunst; dunst -config ~/.config/dunst/dunstrc &
+exec_always --no-startup-id pkill xss-lock; xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh &
 exec_always --no-startup-id pkill xborders; xborders --border-radius 18 --border-width 1 --border-rgba "#CF9FFFFF" --border-mode outside &
 exec_always --no-startup-id pkill greenclip; greenclip daemon &
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/bg.svg &
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh &
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh --nofork &
 exec_always --no-startup-id setxkbmap us &
 exec_always --no-startup-id xrandr --output HDMI1 --right-of eDP1 --auto &
 exec_always --no-startup-id xrandr --output HDMI1 --set "Broadcast RGB" "Full" &
