@@ -31,12 +31,12 @@ gaps inner 10
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%;vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%');dunstify 'Volume Adjusted' '' -h int:value:$vol -r 997"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%;vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%');dunstify 'Volume Adjusted' '' -h int:value:$vol -r 997"
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec "brt=$(brightnessctl set +5% | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
+bindsym XF86MonBrightnessDown exec "brt=$(brightnessctl set 5%- | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

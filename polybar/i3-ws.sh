@@ -2,12 +2,10 @@
 
 current_workspace=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name')
 
-#i3-msg workspace $ws1 output monitor eDP1
-#i3-msg workspace $ws2 output monitor eDP1
-#i3-msg workspace $ws3 output monitor eDP1
-#i3-msg workspace $ws4 output monitor HDMI1
-#i3-msg workspace $ws5 output monitor HDMI1
-#i3-msg workspace $ws6 output monitor HDMI1
+battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
+if [[ $battery_level -lt 20 ]]; then
+    dunstify "Battery Low" "Please charge your device." -h int:value:$val -u critical -r 999
+fi
 
 if xrandr | grep "HDMI1 connected" > /dev/null; then
     case "$current_workspace" in
