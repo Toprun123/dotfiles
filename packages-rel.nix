@@ -7,7 +7,6 @@
         haskellPackages.greenclip
 
         acpi
-        appimage-run
         bc
         bibata-cursors
         blueman
