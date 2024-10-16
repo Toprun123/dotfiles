@@ -32,6 +32,7 @@
         maim
         neovim
         nerdfonts
+        nodejs_22
         picom
         pinentry
         pipes-rs
