@@ -21,6 +21,7 @@
         fribidi
         gcc
         git
+        gnupg
         gparted
         i3lock-color
         inkscape
@@ -32,6 +33,7 @@
         neovim
         nerdfonts
         picom
+        pinentry
         pipes-rs
         polkit_gnome
         polybar
