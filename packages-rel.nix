@@ -41,6 +41,7 @@
         python3
         rofi
         rustup
+        sqlite
         sshfs
         starship
         sysstat
