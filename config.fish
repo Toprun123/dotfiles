@@ -13,7 +13,7 @@ alias py="python3"
 alias ls="tree -vqhFCAL 2 --du --dirsfirst"
 alias lsa="tree -vqhFCAL 1 --du --dirsfirst"
 alias lsh="tree -vqhaFCAL 1 --du --dirsfirst"
-alias s="python3 -m http.server"
+alias s="python3 -m http.server 8080"
 alias pipes.sh="pipes-rs -d 1 -r 0 -b true -p 1 -t 0.5"
 set fish_greeting
 starship init fish | source
