@@ -35,8 +35,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%;vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%');dunstify 'Volume Adjusted' '' -h int:value:$vol -r 997"
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec "brt=$(brightnessctl set +5% | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
-bindsym XF86MonBrightnessDown exec "brt=$(brightnessctl set 5%- | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brt=$(brightnessctl set +5% | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brt=$(brightnessctl set 5%- | grep % | awk -F'[()]' '{print $2}' | sed 's/%//'); dunstify 'Brightness:' '' -h int:value:$brt -r 998"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -46,7 +46,7 @@ floating_modifier $mod
 bindcode $mod+27 restart
 
 # exit i3 (logs you out of your X session)
-bindcode $mod+26 exec bash ~/dotfiles/scripts/power.sh
+bindcode $mod+26 exec --no-startup-id bash ~/dotfiles/scripts/power.sh
 
 bindcode $mod+25 exec --no-startup-id kitty &
 bindcode $mod+23 exec --no-startup-id firefox &
@@ -139,10 +139,10 @@ set $ws6 "6"
 #bindsym $mod+9 workspace number $ws9
 #bindsym $mod+0 workspace number $ws10
 
-bindsym $mod+1 exec setxkbmap us
-bindsym $mod+2 exec setxkbmap tr
-bindsym $mod+3 exec setxkbmap ara
-bindsym $mod+4 exec setxkbmap pk
+bindsym $mod+1 exec --no-startup-id setxkbmap us
+bindsym $mod+2 exec --no-startup-id setxkbmap tr
+bindsym $mod+3 exec --no-startup-id setxkbmap ara
+bindsym $mod+4 exec --no-startup-id setxkbmap pk
 
 # move focused container to workspace
 #bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -184,10 +184,10 @@ mode "%{F#243341}%{F-}%{B#243341 F#ff0f0f}+/-%{F- B-}%{F#243341}%{F-}" {
 
 }
 
-bindsym --whole-window button9 exec "bash ~/dotfiles/scripts/workspaces.sh n"
-bindsym --whole-window button8 exec "bash ~/dotfiles/scripts/workspaces.sh p"
-bindsym --whole-window $mod+button9 exec "bash ~/dotfiles/scripts/workspaces.sh mn"
-bindsym --whole-window $mod+button8 exec "bash ~/dotfiles/scripts/workspaces.sh mp"
+bindsym --whole-window button9 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh n"
+bindsym --whole-window button8 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh p"
+bindsym --whole-window $mod+button9 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh mn"
+bindsym --whole-window $mod+button8 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh mp"
 
 # class                 border  bground text    indicator child_border
 client.focused          #CF9FFF #CF9FFF #FFFFFF #CF9FFF   #CF9FFF
