@@ -204,6 +204,7 @@ for_window [title="passprompt"] floating enable
 
 exec --no-startup-id ~/dotfiles/scripts/restarti3.sh &
 exec --no-startup-id bluetoothctl power off &
+exec --no-startup-id rm $HOME/dotfiles/.val_m
 
 exec_always --no-startup-id pkill dunst; dunst -config ~/.config/dunst/dunstrc &
 exec_always --no-startup-id pkill xss-lock; xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh &
