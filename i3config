@@ -29,8 +29,9 @@ gaps inner 10
 #gaps outer 30
 #smart_gaps inverse_outer
 
-# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+
+# Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%;vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%');dunstify 'Volume Adjusted' '' -h int:value:$vol -r 997"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%;vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%');dunstify 'Volume Adjusted' '' -h int:value:$vol -r 997"
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -46,7 +47,7 @@ floating_modifier $mod
 bindcode $mod+27 restart
 
 # exit i3 (logs you out of your X session)
-bindcode $mod+26 exec --no-startup-id bash ~/dotfiles/scripts/power.sh
+bindcode $mod+26 exec --no-startup-id ~/dotfiles/scripts/power.sh
 
 bindcode $mod+25 exec --no-startup-id kitty &
 bindcode $mod+23 exec --no-startup-id firefox &
@@ -55,13 +56,13 @@ bindcode $mod+54 exec --no-startup-id kitty -e yazi &
 bindcode $mod+53 exec --no-startup-id code &
 bindcode $mod+55 exec --no-startup-id "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
-#bindcode $mod+49 exec --no-startup-id bash ~/dotfiles/scripts/awake.sh &
+#bindcode $mod+49 exec --no-startup-id ~/dotfiles/scripts/awake.sh &
 
 # kill focused window
 bindcode $mod+24 kill
 
 # start dmenu (a program launcher)
-bindcode $mod+40 exec --no-startup-id bash ~/dotfiles/scripts/run.sh
+bindcode $mod+40 exec --no-startup-id ~/dotfiles/scripts/run.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -173,10 +174,10 @@ mode "%{F#243341}%{F-}%{B#243341 F#ff0f0f}+/-%{F- B-}%{F#243341}%{F-}" {
 
         # These bindings trigger as soon as you enter the resize mode
 
-        bindsym Right exec "bash ~/dotfiles/scripts/resize.sh right"
-        bindsym Up exec "bash ~/dotfiles/scripts/resize.sh up"
-        bindsym Down exec "bash ~/dotfiles/scripts/resize.sh down"
-        bindsym Left exec "bash ~/dotfiles/scripts/resize.sh left"
+        bindsym Right exec "~/dotfiles/scripts/resize.sh right"
+        bindsym Up exec "~/dotfiles/scripts/resize.sh up"
+        bindsym Down exec "~/dotfiles/scripts/resize.sh down"
+        bindsym Left exec "~/dotfiles/scripts/resize.sh left"
 
         # back to normal: Escape or $mod+z
         bindsym Escape mode "default"
@@ -184,10 +185,10 @@ mode "%{F#243341}%{F-}%{B#243341 F#ff0f0f}+/-%{F- B-}%{F#243341}%{F-}" {
 
 }
 
-bindsym --whole-window button9 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh n"
-bindsym --whole-window button8 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh p"
-bindsym --whole-window $mod+button9 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh mn"
-bindsym --whole-window $mod+button8 exec --no-startup-id "bash ~/dotfiles/scripts/workspaces.sh mp"
+bindsym --whole-window button9 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh n"
+bindsym --whole-window button8 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh p"
+bindsym --whole-window $mod+button9 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mn"
+bindsym --whole-window $mod+button8 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mp"
 
 # class                 border  bground text    indicator child_border
 client.focused          #CF9FFF #CF9FFF #FFFFFF #CF9FFF   #CF9FFF
@@ -201,7 +202,7 @@ for_window [class="^.*"] border pixel 0
 for_window [class="^.*blueman.*"] floating enable
 for_window [title="passprompt"] floating enable
 
-exec --no-startup-id bash ~/dotfiles/scripts/restarti3.sh &
+exec --no-startup-id ~/dotfiles/scripts/restarti3.sh &
 exec --no-startup-id bluetoothctl power off &
 
 exec_always --no-startup-id pkill dunst; dunst -config ~/.config/dunst/dunstrc &
@@ -209,7 +210,7 @@ exec_always --no-startup-id pkill xss-lock; xss-lock --transfer-sleep-lock -- ~/
 exec_always --no-startup-id pkill xborders; xborders --border-radius 18 --border-width 1 --border-rgba "#CF9FFFFF" --border-mode outside &
 exec_always --no-startup-id pkill greenclip; greenclip daemon &
 exec_always --no-startup-id feh --bg-fill ~/dotfiles/bg.svg &
-exec_always --no-startup-id bash ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id setxkbmap us &
 exec_always --no-startup-id xrandr --output HDMI1 --right-of eDP1 --auto &
 exec_always --no-startup-id xrandr --output HDMI1 --set "Broadcast RGB" "Full" &
