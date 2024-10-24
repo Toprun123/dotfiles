@@ -58,9 +58,8 @@ elif [ "$1" = "add" ]; then
     # Add new workspace on the second monitor
     new_w=$((n + m))  # Workspace number for new workspace
 
-    # Move the new workspace to the second monitor (adjust
-    i3-msg workspace "$new_w"
-    i3-msg move workspace to output HDMI1
+    # Move the new workspace to the second monitor
+    i3-msg "[workspace=$new_w] move workspace to output HDMI1"
 
 elif [ "$1" = "rm" ]; then
 
@@ -75,7 +74,10 @@ elif [ "$1" = "rm" ]; then
         del_w=$((n + m + 1))  # Last workspace number for the second monitor
         l_w=$((n + m))
         i3-msg "[workspace=$del_w] move to workspace $l_w"
-        i3-msg workspace "$l_w"
+
+        if [ "$c_w" = "$del_w" ]; then
+            i3-msg workspace "$l_w"
+        fi
 
     fi
 
