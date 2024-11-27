@@ -1,0 +1,5 @@
+# Run the command on new Kitty window creation
+
+launch env KITTY_STR=1 fish
+
+

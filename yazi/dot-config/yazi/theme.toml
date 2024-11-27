@@ -1,0 +1,9 @@
+[flavor]
+use = "catppuccin-mocha"
+
+[manager]
+cwd = { fg = "#bb9af7" }
+border_style = { fg = "#bb9af7", bold = true }
+hovered = { fg = "#1f2335", bg = "#bb9af7", bold = true }
+preview_hovered = { underline = false }
+
