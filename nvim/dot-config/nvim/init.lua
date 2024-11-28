@@ -173,6 +173,10 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
+	-- preselect = cmp.PreselectMode.None,
+	completion = {
+		completeopt = "noselect",
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -246,7 +250,7 @@ cmp.setup({
 
 -- Treesitter
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "rust", "toml", "python" },
+	ensure_installed = { "lua", "rust", "toml", "python", "go" },
 	auto_install = true,
 	highlight = {
 		enable = true,

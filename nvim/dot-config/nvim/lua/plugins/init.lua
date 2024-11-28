@@ -39,7 +39,7 @@ return {
 				"golangci-lint",
 				"rust-analyzer",
 				"codellb",
-				"ruff",
+				"pyright",
 				"rustfmt",
 				"gopls",
 				"gofumpt",
