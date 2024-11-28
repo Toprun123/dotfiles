@@ -2,7 +2,7 @@
 
 battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
-if [[ $battery_level -lt 20 ]] && [[ $battery_status == "Discharging" ]]; then
+if [[ $battery_level -lt 20 ]] && [[ $battery_level -gt 10 ]] && [[ $battery_status == "Discharging" ]]; then
     dunstify "Battery Low" "Please charge your device." -h int:value:$battery_level -u critical -r 999
 fi
 if [[ $battery_level -lt 10 ]] && [[ $battery_status == "Discharging" ]]; then
