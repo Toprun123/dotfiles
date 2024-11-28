@@ -48,6 +48,15 @@ function g
     kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
     kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
 end
+function ghd
+    magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    gh dash
+    magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+end
 function editor
     set pos (cat ~/dotfiles/.pos)
     y $pos
