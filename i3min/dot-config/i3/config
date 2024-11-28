@@ -73,6 +73,8 @@ bindcode $mod+Shift+57 exec --no-startup-id ~/dotfiles/scripts/network.sh toggle
 
 bindcode $mod+45 exec --no-startup-id ~/dotfiles/scripts/caffiene.sh toggle
 
+bindcode $mod+33 exec --no-startup-id ~/.config/polybar/launch.sh &
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -232,10 +234,10 @@ bindcode --whole-window 117 exec --no-startup-id "~/dotfiles/scripts/workspaces.
 bindcode --whole-window $mod+112 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mn"
 bindcode --whole-window $mod+117 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mp"
 
-bindcode --whole-window 110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh n"
-bindcode --whole-window 115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh p"
-bindcode --whole-window $mod+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mn"
-bindcode --whole-window $mod+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mp"
+#bindcode --whole-window 110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh n"
+#bindcode --whole-window 115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh p"
+#bindcode --whole-window $mod+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mn"
+#bindcode --whole-window $mod+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mp"
 
 # class                 border  bground text    indicator child_border
 client.focused          #0f0f1f #0f0f1f #FFFFFF #0f0f1f   #0f0f1f
