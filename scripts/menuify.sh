@@ -13,7 +13,7 @@ for line in "${lines[@]}"; do
     commands_map["$id"]="$line"
 done
 
-selected=$(printf "$list" | dmenu -p "Select what to do:" -nf '#e0af68' -nb '#1f2335' -sb '#414868' -sf '#ffffff' -fn 'HurmitNerdFont-16')
+selected=$(printf "$list" | dmenu -i -p "Select what to do:" -nf '#e0af68' -nb '#1f2335' -sb '#414868' -sf '#ffffff' -fn 'HurmitNerdFont-16')
 
 if [ -n "$selected" ]; then
     command_to_run=${commands_map["$selected"]}
