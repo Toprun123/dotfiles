@@ -17,7 +17,7 @@ else
     m=3 # Default value if the file doesn't exist
 fi
 
-a_s="%{T5} %{T3}%{F#b5deff}󰻿"  # Active workspace symbol
+a_s="%{T5} %{T3}%{F#7aa2f7}󰻿"  # Active workspace symbol
 i_s="%{T5} %{T3}%{F#999}"  # Inactive workspace symbol
 
 c_w=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name')
@@ -41,7 +41,7 @@ if xrandr | grep "HDMI-1 connected" > /dev/null; then
 else
 
     # If HDMI1 is not connected, create the same output without the separator
-    echo "%{F#fff200} 󰶐 "
+    echo "%{F#e0af68} 󰶐 "
 
 fi
 

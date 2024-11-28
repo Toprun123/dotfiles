@@ -12,7 +12,7 @@ fi
 
 # Define the active symbol and inactive symbol
 
-a_s="%{T3}%{F#b5deff}󰻿%{T5} "  # Active workspace symbol
+a_s="%{T3}%{F#7aa2f7}󰻿%{T5} "  # Active workspace symbol
 i_s="%{T3}%{F#999}%{T5} "  # Inactive workspace symbol
 
 # Create an array for the output
