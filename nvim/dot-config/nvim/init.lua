@@ -284,3 +284,5 @@ require("treesitter-context").setup({
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
+
+-- require("provider.ruby.health").check()

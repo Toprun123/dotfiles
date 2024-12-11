@@ -3,6 +3,8 @@ require("nvchad.options")
 -- add yours here!
 local o = vim.opt
 vim.api.nvim_set_keymap("x", "p", "pgvy", { noremap = true, silent = true })
+vim.g.ruby_host_prog = "/usr/bin/ruby"
+vim.g.loaded_ruby_provider = 1
 o.updatetime = 200
 o.completeopt = { "menuone", "noselect", "noinsert" }
 o.shortmess = o.shortmess + { c = true }

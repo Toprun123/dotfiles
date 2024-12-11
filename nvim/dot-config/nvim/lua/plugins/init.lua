@@ -43,6 +43,7 @@ return {
 				"rustfmt",
 				"gopls",
 				"gofumpt",
+				-- "ruby-lsp",
 			},
 		},
 	},
@@ -106,6 +107,11 @@ return {
 		opts = {
 			-- configurations go here
 		},
+	},
+
+	{
+		"wakatime/vim-wakatime",
+		lazy = false,
 	},
 
 	"nvzone/volt", -- optional, needed for theme switcher

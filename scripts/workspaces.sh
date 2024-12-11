@@ -147,4 +147,29 @@ elif [ "$1" = "rm-m" ]; then
         fi
     fi
 
+elif [ "$1" = "min" ]; then
+
+  current=$(head -n 1 ~/dotfiles/.min_cache)
+  state=$(tail -n 1 ~/dotfiles/.min_cache)
+
+  if [ "$state" = "0" ]; then
+    echo -e "$c_w\n1" > ~/dotfiles/.min_cache
+    i3-msg workspace 30
+  else
+    echo -e "$c_w\n0" > ~/dotfiles/.min_cache
+    i3-msg workspace $current
+  fi
+
+elif [ "$1" = "mvmin" ]; then
+
+  current=$(head -n 1 ~/dotfiles/.min_cache)
+  state=$(tail -n 1 ~/dotfiles/.min_cache)
+
+  if [ "$state" = "0" ]; then
+    i3-msg move container to workspace "30"
+  else
+    i3-msg move container to workspace "$current"
+  fi
+
+
 fi

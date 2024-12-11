@@ -16,6 +16,7 @@ set fish_greeting
 fzf_configure_bindings --directory=\cz --history=\ca
 starship init fish | source
 set -x GOPATH "$HOME/.go"
+set -U fish_user_paths "$HOME/.local/share/gem/ruby/3.3.0/bin" $fish_user_paths
 if set -q KITTY_STR
     kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
     set t_w (tput cols)
