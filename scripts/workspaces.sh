@@ -25,7 +25,12 @@ out=$(echo "$wss" | jq -r '.[] | select(.focused) | .output')
 
 if xrandr | grep "HDMI-1 connected" > /dev/null; then
 
-    if [[ "$c_w" -ge 1 && "$c_w" -le "$n" ]]; then
+    if [[ "$c_w" -eq "30" ]]; then
+
+        n_w=30
+        p_w=30
+
+    elif [[ "$c_w" -ge 1 && "$c_w" -le "$n" ]]; then
 
         # If current workspace is in the primary set (1 to n)
         n_w=$(((c_w % n + n) % n + 1))
@@ -41,9 +46,18 @@ if xrandr | grep "HDMI-1 connected" > /dev/null; then
 
 else
 
-    # Fallback if HDMI1 is not connected
-    n_w=$(((c_w % n + n) % n + 1))
-    p_w=$((((c_w - 2) % n + n) % n + 1))
+    if [[ "$c_w" -eq "30" ]]; then
+
+        n_w=30
+        p_w=30
+
+    else
+
+        # Fallback if HDMI1 is not connected
+        n_w=$(((c_w % n + n) % n + 1))
+        p_w=$((((c_w - 2) % n + n) % n + 1))
+
+    fi
 
 fi
 
@@ -166,7 +180,7 @@ elif [ "$1" = "mvmin" ]; then
   state=$(tail -n 1 ~/dotfiles/.min_cache)
 
   if [ "$state" = "0" ]; then
-    i3-msg move container to workspace "30"
+    i3-msg move container to workspace 30
   else
     i3-msg move container to workspace "$current"
   fi
