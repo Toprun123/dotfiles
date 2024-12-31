@@ -19,6 +19,8 @@ local function entry(st)
 	ya.app_emit("resize", {})
 end
 
-local function enabled(st) return st.old ~= nil end
+local function enabled(st)
+	return st.old ~= nil
+end
 
 return { entry = entry, enabled = enabled }

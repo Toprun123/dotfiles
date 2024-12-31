@@ -1,5 +1,5 @@
 [flavor]
-use = "catppuccin-mocha"
+dark = "catppuccin-mocha"
 
 [manager]
 cwd = { fg = "#bb9af7" }

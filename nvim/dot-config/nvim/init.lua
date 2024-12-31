@@ -248,6 +248,21 @@ cmp.setup({
 	},
 })
 
+-- Image.nvim stuff
+
+require("image").setup({
+	integrations = {
+		markdown = {
+			enabled = false,
+			clear_in_insert_mode = true,
+			download_remote_images = false,
+			only_render_image_at_cursor = true,
+			floating_windows = false, -- if true, images will be rendered in floating markdown windows
+			filetypes = {}, -- markdown extensions (ie. quarto) can go here
+		},
+	},
+})
+
 -- Treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "rust", "toml", "python", "go" },

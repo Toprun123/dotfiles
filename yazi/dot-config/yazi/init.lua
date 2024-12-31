@@ -34,7 +34,7 @@ local function format_time(time)
 	end
 end
 function Linemode:lineui()
-	local time = math.floor(self._file.cha.modified or 0)
+	local time = math.floor(self._file.cha.mtime or 0)
 	local size = 0
 	-- Format the modification time
 	time = format_time(time)
@@ -44,5 +44,5 @@ function Linemode:lineui()
 		size = self._file:size()
 	end
 	-- Return the formatted line
-	return ui.Line(string.format("%s %s", size and ya.readable_size(size) or "-", time))
+	return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
