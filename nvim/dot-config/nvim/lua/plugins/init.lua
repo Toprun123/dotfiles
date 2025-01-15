@@ -114,5 +114,16 @@ return {
 		lazy = false,
 	},
 
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	},
+
 	"nvzone/volt", -- optional, needed for theme switcher
+
+	{
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
 }

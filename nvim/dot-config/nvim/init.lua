@@ -174,9 +174,9 @@ local luasnip = require("luasnip")
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	-- preselect = cmp.PreselectMode.None,
-	completion = {
-		completeopt = "noselect",
-	},
+	-- completion = {
+	-- 	completeopt = "noselect",
+	-- },
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -207,10 +207,6 @@ cmp.setup({
 	mapping = {
 		["<Up>"] = cmp.mapping.select_prev_item(select_opts),
 		["<Down>"] = cmp.mapping.select_next_item(select_opts),
-		["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-		["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<C-y>"] = cmp.mapping.confirm({ select = true }),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -249,16 +245,10 @@ cmp.setup({
 })
 
 -- Image.nvim stuff
-
 require("image").setup({
 	integrations = {
 		markdown = {
 			enabled = false,
-			clear_in_insert_mode = true,
-			download_remote_images = false,
-			only_render_image_at_cursor = true,
-			floating_windows = false, -- if true, images will be rendered in floating markdown windows
-			filetypes = {}, -- markdown extensions (ie. quarto) can go here
 		},
 	},
 })
@@ -298,6 +288,23 @@ require("treesitter-context").setup({
 	max_lines = 0, -- Set the maximum number of lines for context (0 for unlimited)
 })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- Setup null-ls
+require("null-ls").setup({
+	sources = {
+		require("null-ls").builtins.formatting.prettier.with({
+			filetypes = {
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"css",
+				"scss",
+				"json",
+				"yaml",
+			},
+		}),
+	},
+})
 
 -- require("provider.ruby.health").check()

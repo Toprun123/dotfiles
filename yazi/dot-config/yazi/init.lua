@@ -44,5 +44,5 @@ function Linemode:lineui()
 		size = self._file:size()
 	end
 	-- Return the formatted line
-	return string.format("%s %s", size and ya.readable_size(size) or "-", time)
+	return ui.Line(string.format("%s %s", size and ya.readable_size(size) or "-", time))
 end

@@ -265,7 +265,8 @@ exec_always --no-startup-id pkill picom; picom --config ~/.config/i3/picom.conf 
 exec_always --no-startup-id pkill xss-lock; xss-lock --transfer-sleep-lock -- ~/dotfiles/scripts/lock.sh &
 #exec_always --no-startup-id pkill xborders; xborders --border-radius 16 --border-width 3 --border-mode outside &
 exec_always --no-startup-id pkill greenclip; greenclip daemon &
-exec_always --no-startup-id magick -size 1920x1080 xc:#1a1b26 /tmp/f_bg.png; feh --bg-fill /tmp/f_bg.png &
+exec_always --no-startup-id magick -size 1920x1080 xc:#000000 /tmp/f_bg.png; feh --bg-fill /tmp/f_bg.png &
+# #1a1b26
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id setxkbmap us &
 exec_always --no-startup-id xrandr --output HDMI-1 --right-of eDP-1 --auto &
