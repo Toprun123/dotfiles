@@ -2,14 +2,25 @@ require("nvchad.mappings")
 
 local map = vim.keymap.set
 
+map("n", "<Del>", "<nop>", { noremap = true, silent = true })
+map("n", "i", "<nop>", { noremap = true, silent = true })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { noremap = true, silent = true })
+map({ "n", "i", "v" }, "<C-v>", "p", { noremap = true, silent = true })
 
 map("n", "<A-Up>", ":move-2<CR>", { noremap = true, silent = true })
 map("n", "<A-Down>", ":move+1<CR>", { noremap = true, silent = true })
 map("x", "<A-Up>", ":move '<-2<CR>gv", { noremap = true, silent = true })
 map("x", "<A-Down>", ":move '>+1<CR>gv", { noremap = true, silent = true })
+
+map("v", "{", "c{}<Esc>P", { noremap = true, silent = true })
+map("v", "[", "c[]<Esc>P", { noremap = true, silent = true })
+map("v", "(", "c()<Esc>P", { noremap = true, silent = true })
+map("v", "<", "c<><Esc>P", { noremap = true, silent = true })
+map("v", "'", "c''<Esc>P", { noremap = true, silent = true })
+map("v", '"', 'c""<Esc>P', { noremap = true, silent = true })
 
 map("n", "'", "<nop>", { noremap = true, silent = true })
 map("n", '"', "<nop>", { noremap = true, silent = true })
@@ -34,11 +45,11 @@ map("n", "-", "10k", { noremap = true, silent = true })
 
 map("n", "z", "u", { noremap = true, silent = true })
 map("n", "d", "<C-r>", { noremap = true, silent = true })
-map("n", "u", "<nop>", { noremap = true, silent = true })
+map({ "n", "v" }, "u", "<nop>", { noremap = true, silent = true })
 map("n", "<C-r>", "<nop>", { noremap = true, silent = true })
 
-map("n", "k", ":nohls<CR>", { noremap = true, silent = true })
-map("n", "w", "b", { noremap = true, silent = true })
+map("n", "f", ":nohls<CR>", { noremap = true, silent = true })
+map({ "n", "v" }, "w", "b", { noremap = true, silent = true })
 map("n", "u", "ggVG", { noremap = true, silent = true })
 
 map("n", "s", function()
@@ -55,11 +66,13 @@ map("n", "n", function()
 	vim.cmd("delmarks " .. vim.fn.nr2char(vim.fn.getchar()))
 end, { noremap = true })
 
-map({ "n", "t" }, "q", function()
+map({ "n", "t" }, "<C-q>", function()
 	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
 end, { noremap = true })
 
-map("n", "l", function()
+map("n", "q", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+
+map("n", "v", function()
 	local line = vim.fn.input("Go to line: ")
 	if tonumber(line) then
 		vim.api.nvim_command(line)

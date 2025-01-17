@@ -88,9 +88,9 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("VimEnter", {
 	command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
 })
-autocmd("VimEnter", {
-	command = "NvimTreeToggle",
-})
+-- autocmd("VimEnter", {
+-- 	command = "NvimTreeToggle",
+-- })
 autocmd("VimLeavePre", {
 	command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0",
 })
@@ -288,23 +288,6 @@ require("treesitter-context").setup({
 	max_lines = 0, -- Set the maximum number of lines for context (0 for unlimited)
 })
 
--- Setup null-ls
-require("null-ls").setup({
-	sources = {
-		require("null-ls").builtins.formatting.prettier.with({
-			filetypes = {
-				"html",
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-				"css",
-				"scss",
-				"json",
-				"yaml",
-			},
-		}),
-	},
-})
-
 -- require("provider.ruby.health").check()
+vim.cmd("aunmenu PopUp.How-to\\ disable\\ mouse")
+vim.cmd("aunmenu PopUp.-1-")

@@ -79,19 +79,6 @@ return {
 	},
 
 	{
-		"mg979/vim-visual-multi",
-		branch = "master",
-		lazy = false, -- Load immediately
-		config = function()
-			-- vim.g.VM_maps = {
-			-- 	["Add Cursor At Pos"] = "<leader>a",
-			-- }
-			vim.g.VM_mouse_mappings = 1
-			vim.g.VM_set_statusline = 0
-		end,
-	},
-
-	{
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	},
@@ -114,16 +101,44 @@ return {
 		lazy = false,
 	},
 
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	},
-
 	"nvzone/volt", -- optional, needed for theme switcher
 
 	{
 		"chentoast/marks.nvim",
 		event = "VeryLazy",
 		opts = {},
+	},
+
+	{
+		"Exafunction/codeium.vim",
+		config = function()
+			vim.keymap.set("i", "<C-up>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, noremap = true })
+			-- Cycle completions forward with <C-left>
+			vim.keymap.set("i", "<C-right>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, noremap = true })
+			-- Cycle completions backward with <C-right>
+			vim.keymap.set("i", "<C-left>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, noremap = true })
+			-- Accept suggestion with <C-space>
+			vim.keymap.set("i", "<C-down>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, noremap = true })
+			-- Manually trigger suggestion with <M-space>
+			vim.keymap.set("i", "<M-space>", function()
+				return vim.fn["codeium#Complete"]()
+			end, { expr = true, noremap = true })
+			-- Accept next word from suggestion with <C-k>
+			vim.keymap.set("i", "<C-k>", function()
+				return vim.fn["codeium#AcceptNextWord"]()
+			end, { expr = true, noremap = true })
+			-- Accept next line from suggestion with <C-l>
+			vim.keymap.set("i", "<C-l>", function()
+				return vim.fn["codeium#AcceptNextLine"]()
+			end, { expr = true, noremap = true })
+		end,
 	},
 }

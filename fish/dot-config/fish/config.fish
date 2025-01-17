@@ -7,6 +7,7 @@ alias ......="cd ../../../../../.."
 alias py="python3"
 alias ls="eza -TlL 2 --git --total-size --no-permissions --no-user --no-time --icons=always --group-directories-first"
 alias lsa="eza -TlaL 1 --git --total-size --no-permissions --no-user --no-time --icons=always --group-directories-first"
+alias sls="sudo eza -TlL 2 --git --total-size --no-permissions --no-user --no-time --icons=always --group-directories-first"
 alias s="python3 -m http.server 8080"
 alias pipes.sh="pipes-rs -d 1 -r 0 -b true -p 1 -t 0.5"
 alias vi="nvim"
@@ -65,7 +66,7 @@ function editor
     echo $PWD > ~/dotfiles/.pos
 end
 function funk
-    for i in (seq 100)
+    for i in (seq 1000)
          for j in (seq (math $COLUMNS - 1))
               math "ceil(6 * cos(($i + $j) * pi / 5))"
          end | spark | read sparks
