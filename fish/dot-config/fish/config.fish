@@ -17,7 +17,10 @@ set fish_greeting
 fzf_configure_bindings --directory=\cz --history=\ca
 starship init fish | source
 set -x GOPATH "$HOME/.go"
-set -U fish_user_paths "$HOME/.local/share/gem/ruby/3.3.0/bin" $fish_user_paths
+#set -U fish_user_paths "$HOME/.local/share/gem/ruby/3.3.0/bin" $fish_user_paths
+set -Ux PATH "$HOME/.rbenv/bin" $PATH
+status --is-interactive; and source (rbenv init -|psub)
+set -x GEM_PATH (rbenv exec gem env gemdir)
 if set -q KITTY_STR
     kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
     set t_w (tput cols)
@@ -29,35 +32,47 @@ if set -q KITTY_STR
 end
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    end
     yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         builtin cd -- "$cwd"
     end
     rm -f -- "$tmp"
-    magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    end
 end
 function g
-    magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    end
     gitui
-    magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    end
 end
 function ghd
-    magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
+    end
     gh dash
-    magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
-    kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    if not set -q NVIM
+        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
+        kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
+    end
 end
 function editor
     set pos (cat ~/dotfiles/.pos)

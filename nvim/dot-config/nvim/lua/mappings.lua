@@ -1,14 +1,13 @@
-require("nvchad.mappings")
+require "nvchad.mappings"
 
 local map = vim.keymap.set
 
 map("n", "<Del>", "<nop>", { noremap = true, silent = true })
-map("n", "i", "<nop>", { noremap = true, silent = true })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { noremap = true, silent = true })
-map({ "n", "i", "v" }, "<C-v>", "p", { noremap = true, silent = true })
+map({ "n", "i", "v" }, "<C-v>", "<cmd> p <CR>", { noremap = true, silent = true })
 
 map("n", "<A-Up>", ":move-2<CR>", { noremap = true, silent = true })
 map("n", "<A-Down>", ":move+1<CR>", { noremap = true, silent = true })
@@ -53,30 +52,30 @@ map({ "n", "v" }, "w", "b", { noremap = true, silent = true })
 map("n", "u", "ggVG", { noremap = true, silent = true })
 
 map("n", "s", function()
-	local char = vim.fn.nr2char(vim.fn.getchar())
-	local status, _ = pcall(function()
-		vim.cmd("normal! '" .. char)
-	end)
-	if not status then
-		return
-	end
+  local char = vim.fn.nr2char(vim.fn.getchar())
+  local status, _ = pcall(function()
+    vim.cmd("normal! '" .. char)
+  end)
+  if not status then
+    return
+  end
 end, { noremap = true })
 
 map("n", "n", function()
-	vim.cmd("delmarks " .. vim.fn.nr2char(vim.fn.getchar()))
+  vim.cmd("delmarks " .. vim.fn.nr2char(vim.fn.getchar()))
 end, { noremap = true })
 
 map({ "n", "t" }, "<C-q>", function()
-	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { noremap = true })
 
-map("n", "q", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+map("n", "q", ":NvimTreeToggle<CR>:source ~/.config/nvim/lua/chadrc.lua<CR>", { noremap = true, silent = true })
 
-map("n", "v", function()
-	local line = vim.fn.input("Go to line: ")
-	if tonumber(line) then
-		vim.api.nvim_command(line)
-	else
-		print("Invalid line number")
-	end
+map("n", "t", function()
+  local line = vim.fn.input "Go to line: "
+  if tonumber(line) then
+    vim.api.nvim_command(line)
+  else
+    print "Invalid line number"
+  end
 end, { noremap = true })
