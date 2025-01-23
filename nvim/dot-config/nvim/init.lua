@@ -242,6 +242,8 @@ require("treesitter-context").setup {
 pcall(vim.cmd, "aunmenu PopUp.How-to\\ disable\\ mouse")
 pcall(vim.cmd, "aunmenu PopUp.-1-")
 
+require("picvim").setup()
+
 function ReloadIt(module_name)
   -- Unload the module from package.loaded so it will be reloaded
   package.loaded[module_name] = nil

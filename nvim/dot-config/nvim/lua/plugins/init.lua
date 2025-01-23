@@ -142,13 +142,19 @@ return {
       vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
     end,
   },
-
-  -- Private plugins
   {
-    dir = "~/.config/nvim/lua/picvim",
+    "Toprun123/picvim",
     config = function()
       require("picvim").setup()
     end,
-    dev = true,
   },
+
+  -- Private plugins
+  -- {
+  --   dir = "~/.config/nvim/lua/picvim",
+  --   config = function()
+  --     require("picvim").setup()
+  --   end,
+  --   dev = true,
+  -- },
 }
