@@ -20,6 +20,7 @@ map("v", "(", "c()<Esc>P", { noremap = true, silent = true })
 map("v", "<", "c<><Esc>P", { noremap = true, silent = true })
 map("v", "'", "c''<Esc>P", { noremap = true, silent = true })
 map("v", '"', 'c""<Esc>P', { noremap = true, silent = true })
+map("v", "`", "c``<Esc>P", { noremap = true, silent = true })
 
 map("n", "'", "<nop>", { noremap = true, silent = true })
 map("n", '"', "<nop>", { noremap = true, silent = true })
