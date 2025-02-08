@@ -238,11 +238,17 @@ require("treesitter-context").setup {
   max_lines = 0, -- Set the maximum number of lines for context (0 for unlimited)
 }
 
+-- Nvim-tree
+
+require("nvim-tree").setup {
+  git = {
+    ignore = false, -- Set this to false to show git-ignored files
+  },
+}
+
 -- require("provider.ruby.health").check()
 pcall(vim.cmd, "aunmenu PopUp.How-to\\ disable\\ mouse")
 pcall(vim.cmd, "aunmenu PopUp.-1-")
-
-require("picvim").setup()
 
 function ReloadIt(module_name)
   -- Unload the module from package.loaded so it will be reloaded

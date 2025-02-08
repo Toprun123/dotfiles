@@ -151,9 +151,9 @@ return {
 
   -- Private plugins
   -- {
-  --   dir = "~/.config/nvim/lua/picvim",
+  --   dir = "~/main/picvim",
   --   config = function()
-  --     require("picvim").setup()
+  --     require("picvim").setup {}
   --   end,
   --   dev = true,
   -- },

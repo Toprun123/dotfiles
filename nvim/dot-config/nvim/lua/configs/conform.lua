@@ -3,6 +3,11 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
+    erb = { "htmlbeautifier" },
+    ["html.erb"] = { "htmlbeautifier" },
+    rust = { "rustfmt" },
+    go = { "gofmt" },
+    javascript = { "prettier" },
   },
 
   format_on_save = {
