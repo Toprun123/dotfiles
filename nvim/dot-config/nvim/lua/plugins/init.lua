@@ -143,7 +143,7 @@ return {
     end,
   },
   {
-    "Toprun123/picvim",
+    "Toprun123/PicVim",
     config = function()
       require("picvim").setup()
     end,
