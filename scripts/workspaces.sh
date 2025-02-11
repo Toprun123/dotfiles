@@ -29,6 +29,11 @@ if xrandr | grep "HDMI-1 connected" > /dev/null; then
 
         n_w=30
         p_w=30
+    
+    elif [[ "$c_w" -eq "40" ]]; then
+
+        n_w=40
+        p_w=40
 
     elif [[ "$c_w" -ge 1 && "$c_w" -le "$n" ]]; then
 
@@ -50,6 +55,11 @@ else
 
         n_w=30
         p_w=30
+
+    elif [[ "$c_w" -eq "40" ]]; then
+
+        n_w=40
+        p_w=40
 
     else
 
@@ -164,26 +174,47 @@ elif [ "$1" = "rm-m" ]; then
 elif [ "$1" = "min" ]; then
 
   current=$(head -n 1 ~/dotfiles/.min_cache)
-  state=$(tail -n 1 ~/dotfiles/.min_cache)
 
-  if [ "$state" = "0" ]; then
-    echo -e "$c_w\n1" > ~/dotfiles/.min_cache
+  if [ "$c_w" = "30" ]; then
+    i3-msg workspace $current
+  elif [ "$c_w" = "40" ]; then
     i3-msg workspace 30
   else
-    echo -e "$c_w\n0" > ~/dotfiles/.min_cache
-    i3-msg workspace $current
+    echo -e "$c_w" > ~/dotfiles/.min_cache
+    i3-msg workspace 30
   fi
 
 elif [ "$1" = "mvmin" ]; then
 
   current=$(head -n 1 ~/dotfiles/.min_cache)
-  state=$(tail -n 1 ~/dotfiles/.min_cache)
 
-  if [ "$state" = "0" ]; then
-    i3-msg move container to workspace 30
-  else
+  if [ "$c_w" = "30" ]; then
     i3-msg move container to workspace "$current"
+  else
+    i3-msg move container to workspace 30
   fi
 
+elif [ "$1" = "min2" ]; then
+
+  current=$(head -n 1 ~/dotfiles/.min_cache)
+
+  if [ "$c_w" = "40" ]; then
+    i3-msg workspace $current
+  elif [ "$c_w" = "30" ]; then
+    i3-msg workspace 40
+  else
+    echo -e "$c_w" > ~/dotfiles/.min_cache
+    i3-msg workspace 40
+  fi
+
+elif [ "$1" = "mvmin2" ]; then
+
+  current=$(head -n 1 ~/dotfiles/.min_cache)
+
+  if [ "$c_w" = "40" ]; then
+    i3-msg move container to workspace "$current"
+  else
+    i3-msg move container to workspace 40
+  fi
 
 fi
