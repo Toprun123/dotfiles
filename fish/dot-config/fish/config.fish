@@ -88,3 +88,6 @@ function funk
          echo -n $sparks\r && sleep .1
     end
 end
+function todo
+  nvim ~/main/TODOIST.udi
+end

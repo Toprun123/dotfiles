@@ -13,6 +13,8 @@ map("n", "<A-Up>", ":move-2<CR>", { noremap = true, silent = true })
 map("n", "<A-Down>", ":move+1<CR>", { noremap = true, silent = true })
 map("x", "<A-Up>", ":move '<-2<CR>gv", { noremap = true, silent = true })
 map("x", "<A-Down>", ":move '>+1<CR>gv", { noremap = true, silent = true })
+map("i", "<A-Up>", "<C-o>:move-2<CR>", { noremap = true, silent = true })
+map("i", "<A-Down>", "<C-o>:move+1<CR>", { noremap = true, silent = true })
 
 map("v", "{", "c{}<Esc>P", { noremap = true, silent = true })
 map("v", "[", "c[]<Esc>P", { noremap = true, silent = true })

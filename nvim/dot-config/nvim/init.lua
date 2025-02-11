@@ -45,9 +45,13 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("VimEnter", {
   command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
 })
--- autocmd("VimEnter", {
--- 	command = "NvimTreeToggle",
--- })
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argc() == 0 then
+      require("nvim-tree.api").tree.close()
+    end
+  end,
+})
 autocmd("VimLeavePre", {
   command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0",
 })

@@ -48,7 +48,15 @@ return {
     ---enables autocomplete for opts
     ---@module "auto-session"
     ---@type AutoSession.Config
-    opts = {},
+    opts = {
+      pre_save_cmds = { "NvimTreeClose" },
+      save_extra_cmds = {
+        "NvimTreeOpen",
+      },
+      post_restore_cmds = {
+        "NvimTreeOpen",
+      },
+    },
   },
   {
     "wakatime/vim-wakatime",
@@ -129,9 +137,6 @@ return {
     "m-demare/hlargs.nvim",
   },
   {
-    "RRethy/vim-illuminate",
-  },
-  {
     "Bekaboo/dropbar.nvim",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -143,6 +148,56 @@ return {
     end,
   },
   {
+    "itchyny/vim-cursorword",
+    event = "BufEnter",
+    config = function() end,
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    config = function()
+      require("ufo").setup {
+        provider_selector = function(bufnr, filetype, buftype)
+          return { "treesitter", "indent" } -- Use Treesitter & Indent for folding
+        end,
+        fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+          local newVirtText = {}
+          local suffix = ("  󰁂 %d lines "):format(endLnum - lnum) -- Custom fold indicator with an arrow
+          local sufWidth = vim.fn.strdisplaywidth(suffix)
+          local targetWidth = width - sufWidth
+          local curWidth = 0
+          for _, chunk in ipairs(virtText) do
+            local chunkText = chunk[1]
+            local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            if targetWidth > curWidth + chunkWidth then
+              table.insert(newVirtText, chunk)
+            else
+              chunkText = truncate(chunkText, targetWidth - curWidth)
+              table.insert(newVirtText, { chunkText, chunk[2] })
+              curWidth = curWidth + vim.fn.strdisplaywidth(chunkText)
+              if curWidth < targetWidth then
+                suffix = suffix .. (" "):rep(targetWidth - curWidth)
+              end
+              break
+            end
+            curWidth = curWidth + chunkWidth
+          end
+          table.insert(newVirtText, { suffix, "MoreMsg" })
+          return newVirtText
+        end,
+        fold_symbols = {
+          open = "",
+          close = "",
+        },
+      }
+    end,
+  },
+  {
     "Toprun123/PicVim",
     config = function()
       require("picvim").setup()
@@ -151,10 +206,17 @@ return {
 
   -- Private plugins
   -- {
-  --   dir = "~/main/picvim",
+  --   dir = "~/main/PicVim",
   --   config = function()
   --     require("picvim").setup {}
   --   end,
   --   dev = true,
   -- },
+  {
+    dir = "~/main/UdiVim",
+    config = function()
+      require("udivim").setup {}
+    end,
+    dev = true,
+  },
 }
