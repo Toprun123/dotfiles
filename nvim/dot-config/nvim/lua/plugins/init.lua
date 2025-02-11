@@ -74,27 +74,21 @@ return {
       vim.keymap.set("i", "<C-up>", function()
         return vim.fn["codeium#Clear"]()
       end, { expr = true, noremap = true })
-      -- Cycle completions forward with <C-left>
-      vim.keymap.set("i", "<C-right>", function()
+      vim.keymap.set("i", "<M-right>", function()
         return vim.fn["codeium#CycleCompletions"](1)
       end, { expr = true, noremap = true })
-      -- Cycle completions backward with <C-right>
-      vim.keymap.set("i", "<C-left>", function()
+      vim.keymap.set("i", "<M-left>", function()
         return vim.fn["codeium#CycleCompletions"](-1)
       end, { expr = true, noremap = true })
-      -- Accept suggestion with <C-space>
       vim.keymap.set("i", "<C-down>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true, noremap = true })
-      -- Manually trigger suggestion with <M-space>
       vim.keymap.set("i", "<M-space>", function()
         return vim.fn["codeium#Complete"]()
       end, { expr = true, noremap = true })
-      -- Accept next word from suggestion with <C-k>
       vim.keymap.set("i", "<C-k>", function()
         return vim.fn["codeium#AcceptNextWord"]()
       end, { expr = true, noremap = true })
-      -- Accept next line from suggestion with <C-l>
       vim.keymap.set("i", "<C-l>", function()
         return vim.fn["codeium#AcceptNextLine"]()
       end, { expr = true, noremap = true })
