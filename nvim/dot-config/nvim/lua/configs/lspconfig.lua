@@ -37,6 +37,31 @@ lspconfig.cssls.setup {
   capabilities = capabilities, -- Use default LSP capabilities
 }
 
+lspconfig.emmet_ls.setup {
+  cmd = { "emmet-ls", "--stdio" }, -- Ensure `emmet-ls` is installed
+  filetypes = { "html" },
+  root_dir = lspconfig.util.root_pattern(".git", "."),
+  capabilities = capabilities,
+  settings = {
+    emmet = {
+      showSuggestionsAsSnippets = true,
+      variables = {}, -- Define custom Emmet variables if needed
+      preferences = {}, -- Add Emmet preferences if needed
+    },
+  },
+}
+
+lspconfig.bashls.setup {
+  filetypes = { "sh", "bash" },
+}
+
+lspconfig.tsserver.setup {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = true
+  end,
+}
+
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

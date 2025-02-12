@@ -156,7 +156,7 @@ return {
     dependencies = { "kevinhwang91/promise-async" },
     config = function()
       require("ufo").setup {
-        provider_selector = function(bufnr, filetype, buftype)
+        provider_selector = function(_, _, _)
           return { "treesitter", "indent" } -- Use Treesitter & Indent for folding
         end,
         fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
