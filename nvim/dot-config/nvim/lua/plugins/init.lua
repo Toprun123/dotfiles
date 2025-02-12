@@ -1,10 +1,9 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     opts = require "configs.conform",
   },
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -38,16 +37,12 @@ return {
         "rustfmt",
         "gopls",
         "gofumpt",
-        -- "ruby-lsp",
       },
     },
   },
   {
     "rmagatti/auto-session",
     lazy = false,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
     opts = {
       pre_save_cmds = { "NvimTreeClose" },
       save_extra_cmds = {
@@ -62,7 +57,7 @@ return {
     "wakatime/vim-wakatime",
     lazy = false,
   },
-  "nvzone/volt", -- optional, needed for theme switcher
+  "nvzone/volt",
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
@@ -157,11 +152,11 @@ return {
     config = function()
       require("ufo").setup {
         provider_selector = function(_, _, _)
-          return { "treesitter", "indent" } -- Use Treesitter & Indent for folding
+          return { "treesitter", "indent" }
         end,
         fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
           local newVirtText = {}
-          local suffix = ("  󰁂 %d lines "):format(endLnum - lnum) -- Custom fold indicator with an arrow
+          local suffix = ("  󰁂 %d lines "):format(endLnum - lnum)
           local sufWidth = vim.fn.strdisplaywidth(suffix)
           local targetWidth = width - sufWidth
           local curWidth = 0
@@ -197,6 +192,12 @@ return {
       require("picvim").setup()
     end,
   },
+  {
+    "Toprun123/UdiVim",
+    config = function()
+      require("udivim").setup()
+    end,
+  },
 
   -- Private plugins
   -- {
@@ -206,11 +207,11 @@ return {
   --   end,
   --   dev = true,
   -- },
-  {
-    dir = "~/main/UdiVim",
-    config = function()
-      require("udivim").setup {}
-    end,
-    dev = true,
-  },
+  -- {
+  --   dir = "~/main/UdiVim",
+  --   config = function()
+  --     require("udivim").setup {}
+  --   end,
+  --   dev = true,
+  -- },
 }

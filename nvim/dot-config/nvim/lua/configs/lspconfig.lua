@@ -21,7 +21,7 @@ lspconfig.solargraph.setup {
 
 lspconfig.cssls.setup {
   cmd = { "vscode-css-language-server", "--stdio" },
-  filetypes = { "css", "scss", "less" }, -- Adjust based on your needs
+  filetypes = { "css", "scss", "less" },
   root_dir = lspconfig.util.root_pattern(".git", "."),
   settings = {
     css = {
@@ -34,19 +34,19 @@ lspconfig.cssls.setup {
       validate = true,
     },
   },
-  capabilities = capabilities, -- Use default LSP capabilities
+  capabilities = capabilities,
 }
 
 lspconfig.emmet_ls.setup {
-  cmd = { "emmet-ls", "--stdio" }, -- Ensure `emmet-ls` is installed
+  cmd = { "emmet-ls", "--stdio" },
   filetypes = { "html" },
   root_dir = lspconfig.util.root_pattern(".git", "."),
   capabilities = capabilities,
   settings = {
     emmet = {
       showSuggestionsAsSnippets = true,
-      variables = {}, -- Define custom Emmet variables if needed
-      preferences = {}, -- Add Emmet preferences if needed
+      variables = {},
+      preferences = {},
     },
   },
 }
@@ -55,14 +55,13 @@ lspconfig.bashls.setup {
   filetypes = { "sh", "bash" },
 }
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   on_attach = function(client, _)
     client.server_capabilities.documentFormattingProvider = true
   end,
 }
 
--- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
