@@ -240,11 +240,11 @@ bindcode --whole-window 112 exec --no-startup-id "~/dotfiles/scripts/workspaces.
 bindcode --whole-window $mod+117 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mn"
 bindcode --whole-window $mod+112 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mp"
 
-bindcode --whole-window $mod+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh min"
-bindcode --whole-window $mod+Shift+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mvmin"
+bindcode --whole-window $mod+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh min"
+bindcode --whole-window $mod+Shift+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mvmin"
 
-bindcode --whole-window $mod+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh min2"
-bindcode --whole-window $mod+Shift+110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mvmin2"
+bindcode --whole-window $mod+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh min2"
+bindcode --whole-window $mod+Shift+115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh mvmin2"
 
 #bindcode --whole-window 110 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh n"
 #bindcode --whole-window 115 exec --no-startup-id "~/dotfiles/scripts/workspaces.sh p"
