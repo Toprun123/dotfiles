@@ -109,6 +109,9 @@ elif [ "$1" = "rm-m" ]; then
     fi
   fi
 elif [ "$1" = "min" ]; then
+  if (("$c_w" < "20")) && (("$c_w" > "10")); then
+    exit
+  fi
   current=$(head -n 1 ~/dotfiles/.min_cache)
   if [ "$c_w" = "30" ]; then
     i3-msg workspace $current
@@ -119,6 +122,9 @@ elif [ "$1" = "min" ]; then
     i3-msg workspace 30
   fi
 elif [ "$1" = "mvmin" ]; then
+  if (("$c_w" < "20")) && (("$c_w" > "10")); then
+    exit
+  fi
   current=$(head -n 1 ~/dotfiles/.min_cache)
   if [ "$c_w" = "30" ]; then
     i3-msg move container to workspace "$current"
@@ -126,6 +132,9 @@ elif [ "$1" = "mvmin" ]; then
     i3-msg move container to workspace 30
   fi
 elif [ "$1" = "min2" ]; then
+  if (("$c_w" < "20")) && (("$c_w" > "10")); then
+    exit
+  fi
   current=$(head -n 1 ~/dotfiles/.min_cache)
   if [ "$c_w" = "40" ]; then
     i3-msg workspace $current
@@ -136,6 +145,9 @@ elif [ "$1" = "min2" ]; then
     i3-msg workspace 40
   fi
 elif [ "$1" = "mvmin2" ]; then
+  if (("$c_w" < "20")) && (("$c_w" > "10")); then
+    exit
+  fi
   current=$(head -n 1 ~/dotfiles/.min_cache)
   if [ "$c_w" = "40" ]; then
     i3-msg move container to workspace "$current"

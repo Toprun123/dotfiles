@@ -43,15 +43,7 @@ return {
   {
     "rmagatti/auto-session",
     lazy = false,
-    opts = {
-      pre_save_cmds = { "NvimTreeClose" },
-      save_extra_cmds = {
-        "NvimTreeOpen",
-      },
-      post_restore_cmds = {
-        "NvimTreeOpen",
-      },
-    },
+    opts = {},
   },
   {
     "wakatime/vim-wakatime",
@@ -192,12 +184,12 @@ return {
       require("picvim").setup()
     end,
   },
-  {
-    "Toprun123/UdiVim",
-    config = function()
-      require("udivim").setup()
-    end,
-  },
+  -- {
+  --   "Toprun123/UdiVim",
+  --   config = function()
+  --     require("udivim").setup()
+  --   end,
+  -- },
 
   -- Private plugins
   -- {
@@ -207,11 +199,11 @@ return {
   --   end,
   --   dev = true,
   -- },
-  -- {
-  --   dir = "~/main/UdiVim",
-  --   config = function()
-  --     require("udivim").setup {}
-  --   end,
-  --   dev = true,
-  -- },
+  {
+    dir = "~/main/UdiVim",
+    config = function()
+      require("udivim").setup {}
+    end,
+    dev = true,
+  },
 }

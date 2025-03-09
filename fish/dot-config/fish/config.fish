@@ -13,6 +13,8 @@ alias pipes.sh="pipes-rs -d 1 -r 0 -b true -p 1 -t 0.5"
 alias vi="nvim"
 alias vim="nvim"
 alias stow="stow --dotfiles"
+alias :q="exit"
+alias :Q="exit"
 set fish_greeting
 fzf_configure_bindings --directory=\cz --history=\ca
 starship init fish | source
@@ -33,7 +35,7 @@ end
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     if not set -q NVIM
-        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        magick -size 2304x1296 xc:#0f0f1f /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
     end
@@ -43,33 +45,33 @@ function y
     end
     rm -f -- "$tmp"
     if not set -q NVIM
-        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        magick -size 2304x1296 xc:#080014 /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
     end
 end
 function g
     if not set -q NVIM
-        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        magick -size 2304x1296 xc:#0f0f1f /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
     end
     gitui
     if not set -q NVIM
-        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        magick -size 2304x1296 xc:#080014 /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
     end
 end
 function ghd
     if not set -q NVIM
-        magick -size 1920x1080 xc:#0f0f1f /tmp/bg-kitty.png
+        magick -size 2304x1296 xc:#0f0f1f /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=30 margin=0
     end
     gh dash
     if not set -q NVIM
-        magick -size 1920x1080 xc:#080014 /tmp/bg-kitty.png
+        magick -size 2305x1296 xc:#080014 /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-background-image /tmp/bg-kitty.png
         kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=8 margin=0
     end
@@ -89,5 +91,8 @@ function funk
     end
 end
 function todo
-  nvim ~/main/TODOIST.udi
+  cd ~/main/personal
+  nvim ./TODOIST.udi
 end
+thefuck --alias f | source
+thefuck --alias | source

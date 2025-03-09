@@ -24,8 +24,6 @@ font pango:HurmitNerdFont 16
 exec --no-startup-id dex-autostart --autostart --environment i3
 
 # Gaps
-gaps inner 0
-gaps outer 0
 # smart_gaps inverse_outer
 
 workspace_auto_back_and_forth no
@@ -86,6 +84,8 @@ bindcode 118 exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.Medi
 bindsym $mod+F8 exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # bindsym $mod+F9 exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym $mod+F10 exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+bindsym $mod+m exec --no-startup-id "pkill spotify"
 
 # change focus
 # bindsym $mod+j focus left
@@ -157,6 +157,9 @@ set $ws18 "18"
 set $ws19 "19"
 set $ws20 "20"
 
+set $ws30 "30"
+set $ws40 "40"
+
 workspace $ws1 output primary
 workspace $ws2 output primary
 workspace $ws3 output primary
@@ -168,6 +171,10 @@ workspace $ws8 output primary
 workspace $ws9 output primary
 workspace $ws10 output primary
 
+#scratchpads
+workspace $ws30 output primary
+workspace $ws40 output primary
+
 workspace $ws11 output HDMI-1
 workspace $ws12 output HDMI-1
 workspace $ws13 output HDMI-1
@@ -178,6 +185,17 @@ workspace $ws17 output HDMI-1
 workspace $ws18 output HDMI-1
 workspace $ws19 output HDMI-1
 workspace $ws20 output HDMI-1
+
+for_window [workspace="11"] gaps top current set 40
+for_window [workspace="12"] gaps top current set 40
+for_window [workspace="13"] gaps top current set 40
+for_window [workspace="14"] gaps top current set 40
+for_window [workspace="15"] gaps top current set 40
+for_window [workspace="16"] gaps top current set 40
+for_window [workspace="17"] gaps top current set 40
+for_window [workspace="18"] gaps top current set 40
+for_window [workspace="19"] gaps top current set 40
+for_window [workspace="20"] gaps top current set 40
 
 
 # switch to workspace
@@ -278,6 +296,8 @@ exec_always --no-startup-id setxkbmap us &
 exec_always --no-startup-id xrandr --output HDMI-1 --right-of eDP-1 --auto &
 exec_always --no-startup-id xrandr --output HDMI-1 --set "Broadcast RGB" "Full" &
 exec_always --no-startup-id xrandr --output eDP-1 --primary &
+exec_always --no-startup-id xrandr --output HDMI-1 --scale 1.2x1.2 &
+exec_always --no-startup-id xrandr --output eDP-1 --pos 0x600 &
 exec_always --no-startup-id xsetroot -cursor_name left_ptr &
 exec_always --no-startup-id xrdb ~/.Xresources &
 exec_always --no-startup-id ~/dotfiles/scripts/ws_m_loss.sh &

@@ -88,12 +88,6 @@ autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focusable = false })
   end,
 })
-autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.cmd "luafile ~/.config/nvim/lua/chadrc.lua"
-  end,
-})
 
 -- Autocmd for LSP
 autocmd("LspAttach", {
@@ -255,8 +249,17 @@ pcall(vim.cmd, "aunmenu PopUp.How-to\\ disable\\ mouse")
 pcall(vim.cmd, "aunmenu PopUp.-1-")
 
 function ReloadIt(module_name)
-  -- Unload the module from package.loaded so it will be reloaded
   package.loaded[module_name] = nil
-  -- Re-require the module to reload it
   require(module_name)
+end
+
+function FoldIt(n)
+  local bufnr = vim.api.nvim_get_current_buf()
+  local line_count = vim.api.nvim_buf_line_count(bufnr)
+  for lnum = 1, line_count do
+    local level = vim.fn.foldlevel(lnum)
+    if level > n then
+      vim.fn.execute "normal! '"
+    end
+  end
 end

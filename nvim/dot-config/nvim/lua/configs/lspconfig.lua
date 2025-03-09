@@ -39,7 +39,7 @@ lspconfig.cssls.setup {
 
 lspconfig.emmet_ls.setup {
   cmd = { "emmet-ls", "--stdio" },
-  filetypes = { "html" },
+  filetypes = { "html", "erb", "eruby" },
   root_dir = lspconfig.util.root_pattern(".git", "."),
   capabilities = capabilities,
   settings = {
